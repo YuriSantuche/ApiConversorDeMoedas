@@ -11,6 +11,7 @@ Este projeto é um conversor de moedas desenvolvido em Java, utilizando a API Ex
   - BRL ↔️ USD
   - EUR ↔️ BRL
   - EUR ↔️ USD
+    
 - Leitura de dados em tempo real via API externa
 - Interface via terminal (CLI)
 - Validação de entrada do usuário
