@@ -50,17 +50,18 @@ cd ApiConversorDeMoedas
 ##############################################################
 
 📌 Observações
-O projeto segue uma estrutura modular separando responsabilidades entre:
 
-model (modelos de dados)
+- O projeto segue uma estrutura modular separando responsabilidades entre:
 
-service (lógica de conversão)
+- model (modelos de dados)
 
-view (interação com o usuário)
+- service (lógica de conversão)
 
-controller (coordenação entre view e service)
+- view (interação com o usuário)
 
-O código está preparado para futuras expansões, como suporte a mais moedas ou interface gráfica.
+- controller (coordenação entre view e service)
+
+- O código está preparado para futuras expansões, como suporte a mais moedas ou interface gráfica.
 
 ##############################################################
 
