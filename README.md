@@ -21,15 +21,15 @@ Este projeto é um conversor de moedas desenvolvido em Java, utilizando a API Ex
 
 🛠️ Tecnologias e Ferramentas
 
--Java 17+
+- Java 17+
 
--GSON (para desserialização de JSON)
+- GSON (para desserialização de JSON)
 
--Java HttpClient (API nativa para chamadas HTTP)
+- Java HttpClient (API nativa para chamadas HTTP)
 
--IntelliJ IDEA 
+- IntelliJ IDEA 
 
--Git
+- Git
 
 ##############################################################
 
