@@ -1,6 +1,11 @@
+package service;
+
+import model.Moedas;
+import model.RespostaApi;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
+import controller.ConversaoMoedaService;
 
 import java.io.IOException;
 import java.net.URI;
@@ -9,9 +14,9 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Scanner;
 
-public class Conversor {
+public class ConversorMoedasApp {
 
-    public void leituraConversaoMoedas() {
+    public void ConversorMoedasApp() {
 
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
@@ -32,6 +37,13 @@ public class Conversor {
             System.out.println("5: EUR para BRL");
             System.out.println("6: EUR para Dolar");
             System.out.println("7: para sair.");
+
+            if (!scanner.hasNextInt()) {
+                System.out.println("Digite um número valido.");
+                scanner.next();
+                continue;
+            }
+
             escolhaUsuario = scanner.nextInt();
 
             if (escolhaUsuario == 7) {
@@ -41,21 +53,25 @@ public class Conversor {
 
             String endereco = "https://v6.exchangerate-api.com/v6/97fac4ce92c661165ca63e3c/latest/";
 
-            ConversaoDasMoedas conversaoDasMoedas = new ConversaoDasMoedas(escolhaUsuario, endereco);
+            ConversaoMoedaService conversaoDasMoedas = new ConversaoMoedaService(escolhaUsuario, endereco);
             if (!conversaoDasMoedas.conversaoValida()) {
                 continue;
             }
-            String NewEndereco = conversaoDasMoedas.getUrlCompleta();
+            endereco = conversaoDasMoedas.getUrlCompleta();
             String nomeConversao = conversaoDasMoedas.getDestino();
 
-            scanner.nextLine();
             System.out.println("Digite a quantidade: ");
+            if (!scanner.hasNextDouble()) {
+                System.out.println("Digite um valor número valido.");
+                scanner.next();
+                continue;
+            }
             double valor = scanner.nextDouble();
 
             try {
                 HttpClient client = HttpClient.newHttpClient();
                 HttpRequest request = HttpRequest.newBuilder()
-                        .uri(URI.create(NewEndereco))
+                        .uri(URI.create(endereco))
                         .build();
 
                 HttpResponse<String> response = client
@@ -67,26 +83,15 @@ public class Conversor {
                 Moedas moedas = resposta.conversion_rates();
 
                 double soma = 0;
+                soma = conversaoDasMoedas.confirmaMoeda(escolhaUsuario, soma, moedas);
 
-                if (escolhaUsuario == 1) {
-                    soma = moedas.BRL();
-                } else if (escolhaUsuario == 2) {
-                    soma = moedas.EUR();
-                } else if (escolhaUsuario == 3) {
-                    soma = moedas.USD();
-                } else if (escolhaUsuario == 4) {
-                    soma = moedas.EUR();
-                } else if (escolhaUsuario == 5) {
-                    soma = moedas.BRL();
-                } else if (escolhaUsuario == 6) {
-                    soma = moedas.USD();
-                }
-
-                System.out.println("Valor " + valor + " [" + resposta.base_code() + "] para [" + nomeConversao + "] = " + soma * valor);
+                System.out.println("Valor " + valor + " [" + resposta.base_code() + "] ==> [" + nomeConversao + "] = " + soma * valor);
+                System.out.println();
 
             } catch (IOException | InterruptedException | JsonSyntaxException e) {
                 System.out.println("Erro: " + e.getMessage());
             }
         }
+        scanner.close();
     }
 }

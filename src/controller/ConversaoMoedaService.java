@@ -1,10 +1,14 @@
-public class ConversaoDasMoedas {
+package controller;
+
+import model.Moedas;
+
+public class ConversaoMoedaService {
 
     private String base;
     private String destino;
     private String urlCompleta;
 
-    public ConversaoDasMoedas(int escolhaUsuario, String enderecoBase) {
+    public ConversaoMoedaService(int escolhaUsuario, String enderecoBase) {
         metodoConversao(escolhaUsuario, enderecoBase);
     }
 
@@ -36,7 +40,7 @@ public class ConversaoDasMoedas {
                 destino = "USD";
             }
             default -> {
-                System.out.println("Opção inválida.");
+                System.out.println("Opção inválida, por favor, digite um número entre 1 e 7.");
                 base = null;
                 destino = null;
                 return;
@@ -45,6 +49,24 @@ public class ConversaoDasMoedas {
         if (base != null) {
             urlCompleta = "https://v6.exchangerate-api.com/v6/97fac4ce92c661165ca63e3c/latest/" + base;
         }
+    }
+
+    public double confirmaMoeda(int escolhaUsuario, double soma, Moedas moedas) {
+
+        if (escolhaUsuario == 1) {
+            soma = moedas.BRL();
+        } else if (escolhaUsuario == 2) {
+            soma = moedas.EUR();
+        } else if (escolhaUsuario == 3) {
+            soma = moedas.USD();
+        } else if (escolhaUsuario == 4) {
+            soma = moedas.EUR();
+        } else if (escolhaUsuario == 5) {
+            soma = moedas.BRL();
+        } else if (escolhaUsuario == 6) {
+            soma = moedas.USD();
+        }
+        return soma;
     }
 
     public String getBase() {
@@ -56,7 +78,7 @@ public class ConversaoDasMoedas {
     }
 
     public String getUrlCompleta() {
-        return "https://v6.exchangerate-api.com/v6/97fac4ce92c661165ca63e3c/latest/"+base;
+        return "https://v6.exchangerate-api.com/v6/97fac4ce92c661165ca63e3c/latest/" + base;
     }
 
     public boolean conversaoValida() {
