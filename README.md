@@ -1,8 +1,8 @@
-# 💱 Conversor de Moedas em Java
+Conversor de Moedas em Java
 
 Este projeto é um conversor de moedas desenvolvido em Java, utilizando a API ExchangeRate para obter taxas de câmbio em tempo real. Ele permite a conversão entre diferentes moedas através de uma interface de linha de comando (CLI).
 
-## 🚀 Funcionalidades
+Funcionalidades
 
 - Conversão entre:
   - USD ↔️ BRL
@@ -19,7 +19,7 @@ Este projeto é um conversor de moedas desenvolvido em Java, utilizando a API Ex
 
 ##############################################################
 
-🛠️ Tecnologias e Ferramentas
+Tecnologias e Ferramentas
 
 - Java 17+
 
@@ -33,13 +33,13 @@ Este projeto é um conversor de moedas desenvolvido em Java, utilizando a API Ex
 
 ##############################################################
 
-📦 Como executar o projeto
+Como executar o projeto
 
 1. Clone o repositório:
 
-  git clone https://github.com/YuriSantuche/ApiConversorDeMoedas.git
+git clone https://github.com/YuriSantuche/ApiConversorDeMoedas.git
 
-  cd ApiConversorDeMoedas
+cd ApiConversorDeMoedas
 
 2. Abra o projeto em sua IDE favorita.
 
@@ -65,5 +65,4 @@ Este projeto é um conversor de moedas desenvolvido em Java, utilizando a API Ex
 
 ##############################################################
 
-🙋‍♂️ Autor
 Desenvolvido por Yuri Santuche
