@@ -2,6 +2,7 @@ Conversor de Moedas em Java
 
 Este projeto é um conversor de moedas desenvolvido em Java, utilizando a API ExchangeRate para obter taxas de câmbio em tempo real. Ele permite a conversão entre diferentes moedas através de uma interface de linha de comando (CLI).
 
+##############################################################
 Funcionalidades
 
 - Conversão entre:
@@ -27,42 +28,6 @@ Tecnologias e Ferramentas
 
 - Java HttpClient (API nativa para chamadas HTTP)
 
-- IntelliJ IDEA 
-
-- Git
+- IntelliJ IDEA
 
 ##############################################################
-
-Como executar o projeto
-
-1. Clone o repositório:
-
-git clone https://github.com/YuriSantuche/ApiConversorDeMoedas.git
-
-cd ApiConversorDeMoedas
-
-2. Abra o projeto em sua IDE favorita.
-
-3. Certifique-se de ter o Java 17+ instalado.
-
-4. Execute a classe Main.java.
-
-##############################################################
-
-📌 Observações
-
-- O projeto segue uma estrutura modular separando responsabilidades entre:
-
-- model (modelos de dados)
-
-- service (lógica de conversão)
-
-- view (interação com o usuário)
-
-- controller (coordenação entre view e service)
-
-- O código está preparado para futuras expansões, como suporte a mais moedas ou interface gráfica.
-
-##############################################################
-
-Desenvolvido por Yuri Santuche
