@@ -37,9 +37,9 @@ Este projeto é um conversor de moedas desenvolvido em Java, utilizando a API Ex
 
 1. Clone o repositório:
 
-git clone https://github.com/YuriSantuche/ApiConversorDeMoedas.git
+  git clone https://github.com/YuriSantuche/ApiConversorDeMoedas.git
 
-cd ApiConversorDeMoedas
+  cd ApiConversorDeMoedas
 
 2. Abra o projeto em sua IDE favorita.
 
